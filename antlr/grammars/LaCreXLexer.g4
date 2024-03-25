@@ -1,5 +1,6 @@
 lexer grammar LaCreXLexer;
 
+WhiteSpace: [ \t\r\n]+ -> skip;
 COMMA: ',';
 PONTOEVIRGULA: ';';
 LPAREN: '(';
