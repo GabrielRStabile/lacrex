@@ -5,3 +5,4 @@ elu (a > 2){
 }
 
 }
+[hetero] NOME_VARIAVEL 💋 "23 /,.  121312";

@@ -1,7 +1,7 @@
 lexer grammar LaCreXLexer;
 
 WhiteSpace: [ \t\r\n]+ -> skip;
-COMMA: ',';
+VIRGULA: ',';
 PONTOEVIRGULA: ';';
 LPAREN: '(';
 RPAREN: ')';
@@ -12,10 +12,14 @@ SE: 'elu';
 SENAO: 'delu';
 FOREACH: 'segue o fio';
 WHILE: 'comofas';
+DEFINE_FUNCAO: 'qualquer coisa avisa';
 
 BOOLEANO: 'sim' | 'nao';
 
-NOMEVARIAVEL: [a-zA-Z_][a-zA-Z_0-9]*;
+PALAVRA: '"' ( ~[\\"\n\r] | '\\' [\\"])* '"';
+
+NOME_VARIAVEL: [a-zA-Z_][a-zA-Z_0-9]*;
+
 LETRA: [a-zA-Z];
 DIGITO: [0-9]+;
 

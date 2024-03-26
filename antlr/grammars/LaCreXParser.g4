@@ -5,28 +5,54 @@ options {
 }
 
 programa: expressao* EOF;
-expressao: (atribuicao | condicional_se | foreach | while);
+expressao: (
+		atribuicao
+		| condicional_se
+		| foreach
+		| define_funcao
+		| while
+	);
 
+/* { [TIPO] NOME_VARIAVEL = VALOR; } */
+/* { [TIPO] NOME_VARIAVEL; } */
+/* { [TIPO] NOME_VARIAVEL, NOME_VARIAVEL2 = VALOR; } */
+/* { [TIPO] NOME_VARIAVEL, NOME_VARIAVEL2; } */
 atribuicao:
-	TIPAGEM NOMEVARIAVEL OPERADOR_ATRIBUICAO valor PONTOEVIRGULA;
+	TIPAGEM NOME_VARIAVEL (VIRGULA NOME_VARIAVEL)* (
+		OPERADOR_ATRIBUICAO valor
+	)? PONTOEVIRGULA;
 
-/* { QUALQUER COISA } */
+define_funcao:
+	TIPAGEM DEFINE_FUNCAO NOME_VARIAVEL LPAREN lista_argumentos? RPAREN bloco_then;
+
+/* [TIPO] NOME_VARIAVEL, [TIPO2] NOME_VARIAVEL2 */
+lista_argumentos: argumento (VIRGULA argumento)*;
+
+/* { [TIPO] NOME_VARIAVEL } */
+argumento: TIPAGEM NOME_VARIAVEL;
+
+/* { QUALQUER EXPRESSAO } */
 bloco_then: LCURLY expressao* RCURLY;
 
+/* SE (CONDICIONAL) { BLOCO } */
+/* SE (CONDICIONAL) { BLOCO } SENAO { BLOCO } */
+/* SE (CONDICIONAL) { BLOCO } SENAO (CONDICIONAL) { BLOCO } */
 condicional_se:
 	SE LPAREN condicional RPAREN bloco_then (
 		SENAO (LPAREN condicional RPAREN)? LCURLY expressao* RCURLY
 	)?;
 
-condicional: NOMEVARIAVEL OPERADOR_CONDICIONAL valor;
+/* { NOME_VARIAVEL >= valor } */
+condicional: NOME_VARIAVEL OPERADOR_CONDICIONAL valor;
 
+/* { PARACADA (ATRIBUICAO; ) { BLOCO } } */
 foreach:
-	FOREACH LPAREN atribuicao? condicional PONTOEVIRGULA operadorModificador RPAREN bloco_then;
+	FOREACH LPAREN atribuicao? condicional PONTOEVIRGULA operador_modificador RPAREN bloco_then;
 
-operadorModificador: NOMEVARIAVEL DECREMENTO_OU_INCREMENTO;
+operadorModificador: NOME_VARIAVEL DECREMENTO_OU_INCREMENTO;
 
-valor: ((LETRA | DIGITO)* | NULAVEL | BOOLEANO);
+while: WHILE LPAREN condicional RPAREN bloco_then;
 
+operador_modificador: NOME_VARIAVEL DECREMENTO_OU_INCREMENTO;
 
-while:
-	WHILE LPAREN condicional RPAREN bloco_then;
+valor: ((DIGITO)* | NULAVEL | BOOLEANO | PALAVRA);
