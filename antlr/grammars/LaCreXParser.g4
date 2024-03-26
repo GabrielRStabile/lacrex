@@ -49,8 +49,6 @@ condicional: NOME_VARIAVEL OPERADOR_CONDICIONAL valor;
 foreach:
 	FOREACH LPAREN atribuicao? condicional PONTOEVIRGULA operador_modificador RPAREN bloco_then;
 
-operadorModificador: NOME_VARIAVEL DECREMENTO_OU_INCREMENTO;
-
 while: WHILE LPAREN condicional RPAREN bloco_then;
 
 operador_modificador: NOME_VARIAVEL DECREMENTO_OU_INCREMENTO;
