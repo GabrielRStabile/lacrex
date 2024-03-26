@@ -25,9 +25,8 @@ foreach:
 
 operadorModificador: NOMEVARIAVEL DECREMENTO_OU_INCREMENTO;
 
-valor: ((LETRA | DIGITO)* | NULAVEL | BOOLEANO | string);
+valor: ((LETRA | DIGITO)* | NULAVEL | BOOLEANO);
 
-string: ASPAS PALAVRA ASPAS;
 
 while:
 	WHILE LPAREN condicional RPAREN bloco_then;

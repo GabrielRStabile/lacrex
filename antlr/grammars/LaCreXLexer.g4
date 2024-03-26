@@ -2,7 +2,6 @@ lexer grammar LaCreXLexer;
 
 COMMA: ',';
 PONTOEVIRGULA: ';';
-ASPAS: '"'| '\'';
 LPAREN: '(';
 RPAREN: ')';
 LCURLY: '{';
@@ -16,7 +15,6 @@ WHILE: 'comofas';
 BOOLEANO: 'sim' | 'nao';
 
 NOMEVARIAVEL: [a-zA-Z_][a-zA-Z_0-9]*;
-PALAVRA: [a-zA-Z0-9\s[:punct:]]+;
 LETRA: [a-zA-Z];
 DIGITO: [0-9]+;
 
