@@ -16,18 +16,17 @@ WHILE: 'comofas';
 BOOLEANO: 'sim' | 'nao';
 
 NOMEVARIAVEL: [a-zA-Z_][a-zA-Z_0-9]*;
-
 LETRA: [a-zA-Z];
 DIGITO: [0-9]+;
 
-DECREMENTOOUINCREMENTO: 'seje menos' | '++';
+DECREMENTO_OU_INCREMENTO: 'seje menos' | '++';
 
 TIPOS: 'hetero' | 'bissexual' | 'mona' | 'old que';
 TIPAGEM: '[' TIPOS ']';
 NULAVEL: 'cancelado';
 
-OPERADORATRIBUICAO: '💋';
-OPERADORCONDICIONAL:
+OPERADOR_ATRIBUICAO: '💋';
+OPERADOR_CONDICIONAL:
 	'>'
 	| '<'
 	| '<='
