@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start": "node --loader ts-node/esm src/index.ts",
+    "generate-antlr": "antlr4ts -visitor -no-listener -Dlanguage=TypeScript -o src/compiler/ -lib antlr/grammars/.antlr antlr/grammars/* "
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "@types/node": "^20.11.30",
+    "antlr4ts-cli": "0.5.0-alpha.4",
+    "eslint": "^8.57.0",
+    "eslint-config-google": "^0.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "antlr4ts": "0.5.0-alpha.4"
+  }
+}
