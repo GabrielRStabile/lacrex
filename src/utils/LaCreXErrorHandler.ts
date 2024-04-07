@@ -18,15 +18,14 @@ export default class LaCreXErrorHandler implements ANTLRErrorListener<any> {
     }
     errorMessage += ` - ${msg}`;
 
-    console.error('LaCreXError'+errorMessage);
+    console.error('LaCreX: Erro'+errorMessage);
 
   }
 }
 
-// Erros de Sintaxe
 class LaCreXSyntaxError extends Error {
   constructor(message: string) {
     super(message);
-    this.name = 'LaCreXSyntaxError';
+    this.name = 'LaCreX: Erro de Sintaxe';
   }
 }
