@@ -4,13 +4,14 @@ options {
 	tokenVocab = LaCreXLexer;
 }
 
-programa: expressao* EOF;
+programa: define_funcao* main EOF;
 expressao: (
 		atribuicao
 		| condicional_se
 		| foreach
 		| define_funcao
 		| while
+		| (operador_modificador PONTOEVIRGULA)
 	);
 
 /* { [TIPO] NOME_VARIAVEL = VALOR; } */
@@ -24,6 +25,8 @@ atribuicao:
 
 define_funcao:
 	TIPAGEM DEFINE_FUNCAO NOME_VARIAVEL LPAREN lista_argumentos? RPAREN bloco_then;
+
+main: MAIN LPAREN RPAREN bloco_then;
 
 /* [TIPO] NOME_VARIAVEL, [TIPO2] NOME_VARIAVEL2 */
 lista_argumentos: argumento (VIRGULA argumento)*;
