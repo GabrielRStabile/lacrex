@@ -12,7 +12,8 @@ ANTLR (Another Tool for Language Recognition) é uma poderosa ferramenta para cr
 
 ## Como usar
 
-1. Instale ANTLR em seu sistema. Você pode seguir as instruções de instalação em seu site oficial.
+1. Instale um gerenciador de pacotes do node em seu computador (NPM/Yarn/PNPM).
 2. Clone este repositório.
-3. Navegue até a pasta `antlr/grammars` e execute o compilador com o comando: `java -jar antlr.jar -Dlanguage=Typescript grammar.g4`
-4. Agora você pode escrever código em LaCreX e usar nosso compilador para compilá-lo.
+3. Use o comando npm/yarn/pnpm install para baixar todas as dependências do projeto.
+4. Navegue até a pasta `antlr/grammars` e execute o compilador com o comando: `java -jar antlr.jar -Dlanguage=Typescript grammar.g4`
+5. Agora você pode escrever código em LaCreX e usar nosso compilador para compilá-lo.
