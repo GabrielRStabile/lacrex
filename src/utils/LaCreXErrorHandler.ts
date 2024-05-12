@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { ANTLRErrorListener, RecognitionException, Recognizer } from 'antlr4ts';
+import { ANTLRErrorListener, RecognitionException, Recognizer } from 'antlr4ts'
 
 export default class LaCreXErrorHandler implements ANTLRErrorListener<any> {
   syntaxError(
@@ -12,20 +12,15 @@ export default class LaCreXErrorHandler implements ANTLRErrorListener<any> {
     msg: string,
     e: RecognitionException | undefined,
   ): void {
-    let errorMessage = `Erro na linha ${line}:${charPositionInLine}`;
+    let errorMessage = `Erro na linha ${line}:${charPositionInLine}`
     if (offendingSymbol) {
-      errorMessage += ` (Símbolo: ${offendingSymbol.text})`;
+      errorMessage += ` (Símbolo: ${offendingSymbol.text})`
     }
-    errorMessage += ` - ${msg}`;
+    errorMessage += ` - ${msg}`
 
-    console.error('LaCreX: Erro'+errorMessage);
-
-  }
-}
-
-class LaCreXSyntaxError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'LaCreX: Erro de Sintaxe';
+    console.error(
+      'LaCreX: ' +
+        errorMessage.replace('missing', 'faltando').replace('at', 'antes de'),
+    )
   }
 }

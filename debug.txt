@@ -1,8 +1,4 @@
-comofas(a > 2){
-
-elu (a > 2){
-    
+o codigo de milhoes() {
+    segue o fio([hetero] a = 0;4< a < 1; a seje menos)  {
+    }
 }
-
-}
-[hetero] NOME_VARIAVEL 💋 "23 /,.  121312";

@@ -3,15 +3,20 @@
 import { ParseTreeVisitor } from 'antlr4ts/tree/ParseTreeVisitor'
 
 import {
+	ArgumentoContext,
 	AtribuicaoContext,
 	Bloco_thenContext,
 	CondicionalContext,
 	Condicional_seContext,
+	Define_funcaoContext,
 	ExpressaoContext,
 	ForeachContext,
-	OperadorModificadorContext,
+	Lista_argumentosContext,
+	MainContext,
+	Operador_modificadorContext,
 	ProgramaContext,
 	ValorContext,
+	WhileContext,
 } from './LaCreXParser'
 
 /**
@@ -44,6 +49,34 @@ export interface LaCreXParserVisitor<Result> extends ParseTreeVisitor<Result> {
   visitAtribuicao?: (ctx: AtribuicaoContext) => Result
 
   /**
+   * Visit a parse tree produced by `LaCreXParser.define_funcao`.
+   * @param ctx the parse tree
+   * @return the visitor result
+   */
+  visitDefine_funcao?: (ctx: Define_funcaoContext) => Result
+
+  /**
+   * Visit a parse tree produced by `LaCreXParser.main`.
+   * @param ctx the parse tree
+   * @return the visitor result
+   */
+  visitMain?: (ctx: MainContext) => Result
+
+  /**
+   * Visit a parse tree produced by `LaCreXParser.lista_argumentos`.
+   * @param ctx the parse tree
+   * @return the visitor result
+   */
+  visitLista_argumentos?: (ctx: Lista_argumentosContext) => Result
+
+  /**
+   * Visit a parse tree produced by `LaCreXParser.argumento`.
+   * @param ctx the parse tree
+   * @return the visitor result
+   */
+  visitArgumento?: (ctx: ArgumentoContext) => Result
+
+  /**
    * Visit a parse tree produced by `LaCreXParser.bloco_then`.
    * @param ctx the parse tree
    * @return the visitor result
@@ -72,11 +105,18 @@ export interface LaCreXParserVisitor<Result> extends ParseTreeVisitor<Result> {
   visitForeach?: (ctx: ForeachContext) => Result
 
   /**
-   * Visit a parse tree produced by `LaCreXParser.operadorModificador`.
+   * Visit a parse tree produced by `LaCreXParser.while`.
    * @param ctx the parse tree
    * @return the visitor result
    */
-  visitOperadorModificador?: (ctx: OperadorModificadorContext) => Result
+  visitWhile?: (ctx: WhileContext) => Result
+
+  /**
+   * Visit a parse tree produced by `LaCreXParser.operador_modificador`.
+   * @param ctx the parse tree
+   * @return the visitor result
+   */
+  visitOperador_modificador?: (ctx: Operador_modificadorContext) => Result
 
   /**
    * Visit a parse tree produced by `LaCreXParser.valor`.
