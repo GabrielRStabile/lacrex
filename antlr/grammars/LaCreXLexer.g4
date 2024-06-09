@@ -12,8 +12,10 @@ OPERADOR_ATRIBUICAO: '💋';
 OPERADOR_CONDICIONAL:
 	'>'
 	| '<'
+	| '='
 	| '<='
 	| '>='
+	| '=='
 	| 'eh'
 	| 'naoeh'
 	| '&&'
@@ -40,3 +42,4 @@ DECREMENTO_OU_INCREMENTO: 'seje menos' | 'seje mais';
 TIPOS: 'hetero' | 'bissexual' | 'mona' | 'old que';
 TIPAGEM: '[' TIPOS ']';
 NULAVEL: 'cancelado';
+OPERADOR_ARITMETICO: '+' | '-' | '*' | '/' | '%';
