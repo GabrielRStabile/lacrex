@@ -1,8 +1,11 @@
-comofas(a > 2){
+[hetero] x 💋 5;
+[hetero] y 💋 3;
+[hetero] z 💋 1;
 
-elu (a > 2){
-    
+elu  (5 < 3 < 1)  {
+   x == y;
+} delu {
+    y 💋 z;
 }
 
-}
-[hetero] NOME_VARIAVEL 💋 "23 /,.  121312";
+x 💋 y / z;

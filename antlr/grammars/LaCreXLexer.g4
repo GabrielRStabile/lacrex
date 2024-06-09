@@ -33,9 +33,21 @@ OPERADOR_ATRIBUICAO: '💋';
 OPERADOR_CONDICIONAL:
 	'>'
 	| '<'
+	| '='
 	| '<='
 	| '>='
+	| '=='
 	| 'eh'
 	| 'naoeh'
 	| '&&'
 	| '||';
+
+OPERADOR_ARITMETICO:
+	'+'
+	| '-'
+	| '*'
+	| '/'
+	| '%';
+
+
+
