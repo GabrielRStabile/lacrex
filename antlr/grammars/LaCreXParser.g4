@@ -11,7 +11,7 @@ expressao: (
 		| foreach
 		| define_funcao
 		| while
-		| (operador_modificador PONTOEVIRGULA)
+		| (operador_modificador)
 		| funcao_matematica
 	);
 
