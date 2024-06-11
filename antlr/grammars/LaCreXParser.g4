@@ -9,7 +9,6 @@ expressao: (
 		atribuicao
 		| condicional_se
 		| foreach
-		| define_funcao
 		| while
 		| (operador_modificador)
 		| funcao_matematica

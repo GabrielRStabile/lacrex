@@ -1,11 +1,17 @@
-o codigo de milhoes()
-{
-[hetero] variavel 💋 2 + 2;
 
-elu (variavel eh 2){
 
-[mona] variavel2 💋 "Hello World";
-} delu {
-[mona] variavel2 💋 "Ola mundo";
+
+o codigo de milhoes(){
+
+ [hetero] x 💋 5;
+[hetero] y 💋 3;
+[hetero] z 💋 2;
+elu (5 < 3 < 2) {
+
+x == y;
 }
+delu {
+    x 💋 2;
+}
+
 }
