@@ -1,11 +1,11 @@
-[hetero] x 💋 5;
-[hetero] y 💋 3;
-[hetero] z 💋 1;
+o codigo de milhoes(){
+[hetero] variavel;
+[mona] erro 💋 "dois";
 
-elu  (5 < 3 < 1)  {
-   x == y;
-} delu {
-    y 💋 z;
+
+elu(erro eh variavel)
+{
+
 }
 
-x 💋 y / z;
+}
