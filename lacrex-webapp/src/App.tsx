@@ -14,22 +14,12 @@ function App() {
           className="max-w rounded-lg border"
         >
           <ResizablePanel defaultSize={50} maxSize={40} minSize={20}>
-            <FileExplorer
-              files={[]}
-              onFileClick={function (): void {
-                throw new Error('Function not implemented.')
-              }}
-            />
+            <FileExplorer />
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize={50}>
             <ResizablePanelGroup direction="vertical">
-              <TabBar
-                openFiles={[]}
-                onCloseTab={function (): void {
-                  throw new Error('Function not implemented.')
-                }}
-              />
+              <TabBar />
               <ResizablePanel defaultSize={75}>
                 <div className="flex h-full items-center justify-center p-6 bg-amber-500">
                   <span className="font-semibold text-white">
