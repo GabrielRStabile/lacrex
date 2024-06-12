@@ -3,6 +3,8 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable'
+import TabBar from './tab-bar'
+import FileExplorer from './file-explorer'
 function App() {
   return (
     <>
@@ -12,22 +14,12 @@ function App() {
           className="max-w rounded-lg border"
         >
           <ResizablePanel defaultSize={50} maxSize={40} minSize={20}>
-            <div className="flex h-full items-center justify-center p-6 bg-blue-500">
-              <span className="font-semibold text-white">
-                Navegador de arquivos
-              </span>
-            </div>
+            <FileExplorer />
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize={50}>
             <ResizablePanelGroup direction="vertical">
-              <ResizablePanel defaultSize={10} minSize={10} maxSize={10}>
-                <div className="flex h-full items-center justify-center p-6 bg-red-500">
-                  <span className="font-semibold text-white">
-                    Arquivos abertos
-                  </span>
-                </div>
-              </ResizablePanel>
+              <TabBar />
               <ResizablePanel defaultSize={75}>
                 <div className="flex h-full items-center justify-center p-6 bg-amber-500">
                   <span className="font-semibold text-white">
