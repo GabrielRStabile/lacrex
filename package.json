@@ -6,14 +6,12 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^20.11.30",
-    "antlr4ts-cli": "0.5.0-alpha.4",
     "eslint": "^8.57.0",
     "eslint-config-google": "^0.14.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
-    "antlr4": "^4.13.1-patch-1",
-    "antlr4ts": "0.5.0-alpha.4"
+    "antlr4": "^4.13.1-patch-1"
   }
 }
