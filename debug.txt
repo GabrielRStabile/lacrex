@@ -1,17 +1,17 @@
 
 
 
-o codigo de milhoes(){
+o codigo de milhoes() {
+    [hetero] nomeVariavel 💋 valor;
+    [hetero]  nomeVariavel2, nomeVariavel5;
 
- [hetero] x 💋 5;
-[hetero] y 💋 3;
-[hetero] z 💋 2;
-elu (5 < 3 < 2) {
+   
 
-x == y;
-}
-delu {
-    x 💋 2;
-}
+    elu ( nomeVariavel4 == valor) {
+        
+    } delu {
 
+    }
+
+   
 }

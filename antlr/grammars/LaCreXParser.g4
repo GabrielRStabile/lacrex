@@ -12,6 +12,7 @@ expressao: (
 		| while
 		| (operador_modificador)
 		| funcao_matematica
+		| atribuicao_ou_operador_modificador
 	);
 
 /* { [TIPO] NOME_VARIAVEL = VALOR; } */
@@ -21,21 +22,21 @@ expressao: (
 atribuicao:
 	(TIPAGEM)? NOME_VARIAVEL (VIRGULA NOME_VARIAVEL)* (
 		OPERADOR_ATRIBUICAO valor
-		| OPERADOR_CONDICIONAL NOME_VARIAVEL
-	)? (PONTOEVIRGULA)?;
+		| OPERADOR_CONDICIONAL NOME_VARIAVEL | OPERADOR_ATRIBUICAO valor | OPERADOR_CONDICIONAL | NOME_VARIAVEL | OPERADOR_ATRIBUICAO valor | NOME_VARIAVEL 
+	) (PONTOEVIRGULA);
 
-atribuicao_condicional:
+/*atribuicao_condicional:
 	NOME_VARIAVEL
 	| valor OPERADOR_ATRIBUICAO NOME_VARIAVEL valor
 	| (PONTOEVIRGULA)?;
-
+*/
 define_funcao:
 	TIPAGEM DEFINE_FUNCAO NOME_VARIAVEL LPAREN lista_argumentos? RPAREN bloco_then;
 
 main: MAIN LPAREN RPAREN bloco_then;
 
 /* [TIPO] NOME_VARIAVEL, [TIPO2] NOME_VARIAVEL2 */
-lista_argumentos: argumento (VIRGULA argumento)*;
+lista_argumentos: argumento (PONTOEVIRGULA argumento)*;
 
 /* { [TIPO] NOME_VARIAVEL } */
 argumento: TIPAGEM NOME_VARIAVEL;
@@ -55,11 +56,11 @@ condicional_se:
 		SENAO (LPAREN condicional RPAREN bloco_then | bloco_then)
 	)?;
 
-condicional_se2:
+/*condicional_se2:
 	SE LPAREN condicional RPAREN bloco_then (
 		SENAO (LPAREN condicional RPAREN)?
 	)?;
-
+*/
 /* { NOME_VARIAVEL >= valor } */
 /*condicional: NOME_VARIAVEL OPERADOR_CONDICIONAL valor;*/
 
@@ -86,6 +87,7 @@ while: WHILE LPAREN condicional RPAREN bloco_then;
 
 operador_modificador: NOME_VARIAVEL DECREMENTO_OU_INCREMENTO;
 
+atribuicao_ou_operador_modificador : atribuicao | operador_modificador;
 valor: (
 		(DIGITO)*
 		| NULAVEL
