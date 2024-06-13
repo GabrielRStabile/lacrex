@@ -13,14 +13,25 @@ import { Input } from '@/components/ui/input'
 import { useNavigationSystem } from '@/contexts/navigation-system-context'
 import { Plus } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'react-hot-toast'
 
 export const NewFileDialog = () => {
   const [fileName, setFileName] = useState('')
-  const { newFile } = useNavigationSystem()
+  const { newFile, allFiles } = useNavigationSystem()
 
   const handleAddFile = () => {
-    newFile(fileName)
-    setFileName('')
+    if (fileName.trim() !== '') {
+      const fileExists = allFiles.some(
+        (file) => file.name.toLowerCase() === fileName.toLowerCase().trim(),
+      )
+
+      if (fileExists) {
+        toast.error('Já existe um arquivo com este nome.')
+      } else {
+        newFile(fileName.trim())
+        setFileName('')
+      }
+    }
   }
 
   return (
