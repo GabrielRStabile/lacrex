@@ -1,9 +1,12 @@
-import { CharStreams, CommonTokenStream } from 'antlr4ts'
+import { CharStreams, CommonTokenStream } from 'antlr4'
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import { LaCreXLexer } from './compiler/antlr/grammars/LaCreXLexer'
-import { LaCreXParser } from './compiler/antlr/grammars/LaCreXParser'
-import LaCreXErrorHandler from './utils/LaCreXErrorHandler'
+import LaCreXLexer from './compiler/antlr/grammars/LaCreXLexer'
+import LaCreXParser from './compiler/antlr/grammars/LaCreXParser'
+import {
+    LaCreXLexerErrorHandler,
+    LaCreXSintaxErrorHandler,
+} from './utils/LaCreXErrorHandler'
 import LaCrexSemantic from './utils/LaCreXSemantic'
 
 const input = readFileSync(join(__dirname, 'debug.lacre'), 'utf8')
@@ -18,12 +21,12 @@ const parser = new LaCreXParser(tokens)
  * to handle the errors
  */
 parser.removeErrorListeners()
-parser.addErrorListener(new LaCreXErrorHandler())
+parser.addErrorListener(new LaCreXSintaxErrorHandler())
 lexer.removeErrorListeners()
-lexer.addErrorListener(new LaCreXErrorHandler())
+lexer.addErrorListener(new LaCreXLexerErrorHandler())
 
 const sintaxTree = parser.programa()
 
 LaCrexSemantic.verify(sintaxTree)
 
-console.log(sintaxTree.toStringTree(parser.ruleNames))
+console.log(sintaxTree.toStringTree(parser.ruleNames, parser))

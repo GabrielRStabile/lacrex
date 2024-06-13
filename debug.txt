@@ -1,4 +1,11 @@
 o codigo de milhoes() {
-    segue o fio([hetero] a = 0;4< a < 1; a seje menos)  {
+    hetero nomeVariavel 💋 valor;
+    hetero nomeVariavel2, nomeVariavel5;
+
+    elu (nomeVariavel4 == valor) {
+        hetero nomeVariavel 💋 valor;
+        mona nomeVariavel2, nomeVariavel5;
+    } delu {
+
     }
 }
