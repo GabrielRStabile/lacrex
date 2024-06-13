@@ -21,6 +21,7 @@
     "monaco-editor": "^0.49.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-resizable-panels": "^2.0.19",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"

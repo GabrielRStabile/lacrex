@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from 'react'
 
 export interface File {
   name: string
-  content: string
 }
 
 interface NavigationSystemContextData {
@@ -83,7 +82,6 @@ export const NavigationSystemProvider = ({
   function newFile(fileName: string) {
     const file: File = {
       name: fileName,
-      content: '',
     }
 
     setAllFiles((prev) => [file, ...prev])
