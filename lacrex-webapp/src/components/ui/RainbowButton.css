@@ -1,0 +1,41 @@
+.rainbow-button {
+    padding: 10px 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    overflow: hidden;
+    text-transform: uppercase;
+    position: relative;
+}
+
+
+.gray-button {
+    background:#6e6e6e
+}
+
+.gradient-button::before {
+    filter: blur(20px);
+    content: '';
+    position: absolute;
+    left: -10px;
+    width: 230px;
+    height: 230px;
+    background: conic-gradient(#fde04c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c);
+    animation: rotate 5s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.rainbow-button-content {
+    position: relative;
+    z-index: 2;
+}

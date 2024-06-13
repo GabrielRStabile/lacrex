@@ -13,11 +13,12 @@ import { Input } from '@/components/ui/input'
 import { useNavigationSystem } from '@/contexts/navigation-system-context'
 import { Plus } from 'lucide-react'
 import { useState } from 'react'
-import { toast } from 'react-hot-toast'
+import { useToast } from './use-toast'
 
 export const NewFileDialog = () => {
   const [fileName, setFileName] = useState('')
   const { newFile, allFiles } = useNavigationSystem()
+  const { toast } = useToast()
 
   const handleAddFile = () => {
     if (fileName.trim() !== '') {
@@ -26,7 +27,10 @@ export const NewFileDialog = () => {
       )
 
       if (fileExists) {
-        toast.error('Já existe um arquivo com este nome.')
+        toast({
+          variant: 'destructive',
+          title: 'Já existe um arquivo com este nome.',
+        })
       } else {
         newFile(fileName.trim())
         setFileName('')
@@ -48,7 +52,11 @@ export const NewFileDialog = () => {
           </AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogDescription>
-          <Input type="text" value={fileName} onChange={(e) => setFileName(e.target.value)} />
+          <Input
+            type="text"
+            value={fileName}
+            onChange={(e) => setFileName(e.target.value)}
+          />
         </AlertDialogDescription>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>

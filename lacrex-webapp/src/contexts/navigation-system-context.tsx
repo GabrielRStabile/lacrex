@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react'
 
 export interface File {
   name: string
+  content: string
 }
 
 interface NavigationSystemContextData {
@@ -14,7 +15,6 @@ interface NavigationSystemContextData {
   recentlyOpenedFiles: File[]
   activeFile: File | null
   setActiveFile: (file: File | null) => void
-  setSelectedFile: (file: File | null) => void
 }
 
 interface NavigationSystemContextProviderProps {
@@ -29,8 +29,6 @@ export const NavigationSystemProvider = ({
   children,
 }: NavigationSystemContextProviderProps) => {
   const [activeFile, setActiveFile] = useState<File | null>(null)
-
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
   const [allFiles, setAllFiles] = useState<File[]>([])
 
@@ -82,6 +80,7 @@ export const NavigationSystemProvider = ({
   function newFile(fileName: string) {
     const file: File = {
       name: fileName,
+      content: '',
     }
 
     setAllFiles((prev) => [file, ...prev])
@@ -113,7 +112,6 @@ export const NavigationSystemProvider = ({
         recentlyOpenedFiles,
         activeFile,
         setActiveFile,
-        setSelectedFile,
       }}
     >
       {children}

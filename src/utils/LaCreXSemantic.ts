@@ -3,7 +3,7 @@ import {
   ExpressaoContext,
   ProgramaContext,
   ValorContext,
-} from '../compiler/antlr/grammars/LaCreXParser'
+} from '../../lacrex-webapp/src/antlr/grammars/LaCreXParser'
 
 interface SymbolTableEntry {
   name: string
@@ -41,9 +41,9 @@ export default class LaCrexSemantic {
       return
     }
 
-    const variableName = variableNameNode.text
+    const variableName = variableNameNode.getText()
     const variableTypeToken = atribuicao.children?.[0]
-    const variableType = variableTypeToken ? variableTypeToken.text : null
+    const variableType = variableTypeToken ? variableTypeToken.getText() : null
 
     if (variableType && this.typeMap.hasOwnProperty(variableType)) {
       this.addVariableToSymbolTable(variableName, variableType)
@@ -75,11 +75,11 @@ export default class LaCrexSemantic {
       return
     }
 
-    if (valor.text.match(/^\d+$/)) {
+    if (valor.getText().match(/^\d+$/)) {
       valorType = 'int'
-    } else if (valor.text.startsWith('"') && valor.text.endsWith('"')) {
+    } else if (valor.getText().startsWith('"') && valor.getText().endsWith('"')) {
       valorType = 'string'
-    } else if (valor.text === 'true' || valor.text === 'false') {
+    } else if (valor.getText() === 'true' || valor.getText() === 'false') {
       valorType = 'bool'
     }
 
@@ -94,7 +94,7 @@ export default class LaCrexSemantic {
     if (expressao.children?.[0] instanceof AtribuicaoContext) {
       this.verifyAtribuicao(expressao.children?.[0])
     }
-    console.log('Expressao:', expressao.text)
+    console.log('Expressao:', expressao.getText())
   }
 
   public static verify(programa: ProgramaContext): void {
